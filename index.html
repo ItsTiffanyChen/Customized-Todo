@@ -18,7 +18,7 @@
       <div class="item-list">
         <item v-for="(item, i) of items" :item="item" :i="i" @delete-item="deleteItem"></item>
       </div>
-      <p class="add-container"><input v-model="newItem" type="text" placeholder="新增項目" @keypress.enter="addItem"><button class="submit" @click="addItem">新增</button></button></p>
+      <p class="add-container"><input v-model="newItem" type="text" placeholder="新增項目" @keypress.enter="addItem"><button class="submit" @click="addItem">新增</button></p>
       <p v-if="items.filter(item=>item.done).length"><button class="delete-all" @click="deleteDone"><span>刪除所有已完成事項</span></button></p>
     </div>
   </div>
