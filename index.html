@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mom's Todo</title>
+  <link rel="stylesheet" href="./index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.css">
+</head>
+<body>
+  <div id="app">
+    <h1>媽咪ㄉ客製化備忘錄</h1>
+    <div class="item-container">
+      <div class="item-list">
+        <item v-for="(item, i) of items" :item="item" :i="i" @delete-item="deleteItem"></item>
+      </div>
+      <p class="add-container"><input v-model="newItem" type="text" placeholder="新增項目" @keypress.enter="addItem"><button class="submit" @click="addItem">新增</button></button></p>
+      <p v-if="items.filter(item=>item.done).length"><button class="delete-all" @click="deleteDone"><span>刪除所有已完成事項</span></button></p>
+    </div>
+  </div>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.14.3/firebase-firestore.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCWWyrWooRbBsmRjTa9PEGCPNCC104ELAk",
+    authDomain: "customizedtodo.firebaseapp.com",
+    databaseURL: "https://customizedtodo.firebaseio.com",
+    projectId: "customizedtodo",
+    storageBucket: "customizedtodo.appspot.com",
+    messagingSenderId: "39861170636",
+    appId: "1:39861170636:web:a7bc733de990a42187ad69",
+    measurementId: "G-ECQ1E90HBT"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.firestore();
+</script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="./index.js"></script>
+</body>
+</html>
