@@ -1,6 +1,7 @@
 @media only screen and (max-width: 550px) {
   #app {
     width: 370px;
+    height: 90%;
   }
   .item-list {
     /* font-size: 3em; */
