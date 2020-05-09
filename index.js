@@ -43,7 +43,8 @@ let app = new Vue({
         itemsRef.doc(id).set({
           id: id,
           task: this.newItem,
-          done: false
+          done: false,
+          timestamp: firebase.firestore.FieldValue.serverTimestamp()
         });
         this.newItem = ""
       }
@@ -63,7 +64,7 @@ let app = new Vue({
     }
   },
   mounted() {
-    itemsRef.onSnapshot(querySnap => {
+    itemsRef.orderBy('timestamp', 'asc').onSnapshot(querySnap => {
       this.items = querySnap.docs.map(doc => doc.data())
     })
   }
